@@ -1,0 +1,38 @@
+---
+title: "A Sample Data Analysis"
+author: "Author"
+date: "2026-04-09"
+categories: [analysis, python]
+description: "Demonstrating Python code execution and plots in Quarto."
+---
+
+```{python}
+#| echo: true
+import numpy as np
+import matplotlib.pyplot as plt
+
+rng = np.random.default_rng(42)
+x = np.linspace(0, 2 * np.pi, 200)
+y = np.sin(x) + rng.normal(scale=0.1, size=x.shape)
+
+fig, ax = plt.subplots(figsize=(8, 4))
+ax.plot(x, y, label="noisy sine")
+ax.plot(x, np.sin(x), linestyle="--", label="true sine")
+ax.set_xlabel("x")
+ax.set_ylabel("y")
+ax.legend()
+ax.set_title("Sine wave with noise")
+plt.tight_layout()
+plt.show()
+```
+
+## Summary statistics
+
+```{python}
+print(f"Mean:   {y.mean():.4f}")
+print(f"Std:    {y.std():.4f}")
+print(f"Min:    {y.min():.4f}")
+print(f"Max:    {y.max():.4f}")
+```
+
+Quarto runs the Python kernel, captures outputs, and embeds them directly in the rendered HTML — no manual export needed.

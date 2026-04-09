@@ -1,0 +1,8 @@
+/* Custom blog styles */
+.navbar {
+  border-bottom: 1px solid #e9ecef;
+}
+
+.quarto-title-block {
+  padding: 2rem 0;
+}
