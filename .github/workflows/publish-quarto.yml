@@ -32,10 +32,7 @@ jobs:
       - name: Install AWS CLI
         uses: unfor19/install-aws-cli-action@v1
       - name: Sync to SeaweedFS S3
-        env:
-          AWS_ACCESS_KEY_ID: ${{ vars.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ vars.AWS_SECRET_ACCESS_KEY }}
         run: |
-          aws s3 sync _site/ s3://${{ vars.NIX_CACHE_BUCKET }}/ \
-            --endpoint-url ${{ vars.S3_ENDPOINT }} \
+          aws s3 sync _site/ s3://${NIX_CACHE_BUCKET}/ \
+            --endpoint-url ${S3_ENDPOINT} \
             --delete
