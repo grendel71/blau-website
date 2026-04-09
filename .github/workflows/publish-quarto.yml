@@ -34,5 +34,5 @@ jobs:
       - name: Sync to SeaweedFS S3
         run: |
           aws s3 sync _site/ s3://${NIX_CACHE_BUCKET}/ \
-            --endpoint-url ${S3_ENDPOINT} \
+            --endpoint-url http://192.168.1.88:8333 \
             --delete
