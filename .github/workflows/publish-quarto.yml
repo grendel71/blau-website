@@ -1,0 +1,31 @@
+name: Render and Publish
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-deploy:
+    runs-on: self-hosted
+    permissions:
+      contents: read
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.3.340
+
+      - name: Render site
+        run: quarto render
+
+      - name: Sync to SeaweedFS S3
+        env:
+          AWS_ACCESS_KEY_ID: ${{ vars.SEAWEED_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ vars.SEAWEED_SECRET_KEY }}
+        run: |
+          aws s3 sync _site/ s3://${{ vars.SEAWEED_BUCKET }}/ \
+            --endpoint-url ${{ vars.SEAWEED_ENDPOINT }} \
+            --delete
