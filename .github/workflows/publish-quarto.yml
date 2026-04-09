@@ -19,6 +19,9 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
         with:
           version: 1.3.340
+      - name: Install Python dependencies
+        run: python3 -m pip install jupyter matplotlib numpy
+
       - name: Render site
         run: quarto render
       - name: Install AWS CLI
