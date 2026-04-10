@@ -3,7 +3,7 @@ title: "My Blog"
 listing:
   contents: posts
   sort: "date desc"
-  type: default
+  type: grid
   categories: true
   feed: true
 page-layout: full

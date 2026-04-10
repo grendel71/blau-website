@@ -2,6 +2,7 @@
 title: "Blog"
 categories: [Projects]
 description: "Personal Website built with Quarto + Nix + Github Actions"
+image: test.jpeg
 ---
 
 Welcome! This blog is built with [Quarto](https://quarto.org) and managed with [Nix](https://nixos.org).

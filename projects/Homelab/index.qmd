@@ -2,6 +2,7 @@
 title: "Homelab"
 categories: [Projects]
 description: "Personal Homelab / Learning Environment"
+image: thumb.jpeg
 ---
 
 work in progress
